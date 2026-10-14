@@ -110,6 +110,12 @@ Statistics for rich menus created using the Messaging API or LINE Official Accou
 | Messaging API | ✅ | ❌ |
 | LINE Official Account Manager | ❌ | ✅ |
 
+### Statistics for rich menus after deletion or unlinking 
+
+You can still retrieve statistics for dates within the aggregation period, even if the rich menu has already been deleted or unlinked from users.
+
+Even after you [delete a rich menu](https://developers.line.biz/en/reference/messaging-api/#delete-rich-menu), it may remain visible in a chat the user already has open. As a result, even if you delete a rich menu at the end of a month, its statistics may include data on views and clicks that occurred in the following month or later. For more information, see [When rich menu setting changes take effect](https://developers.line.biz/en/docs/messaging-api/rich-menus-overview/#when-setting-change-takes-effect).
+
 ## Rich menu API reference 
 
 - [Rich menu](https://developers.line.biz/en/reference/messaging-api/#rich-menu)

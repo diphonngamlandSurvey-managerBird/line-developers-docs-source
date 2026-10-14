@@ -13700,6 +13700,16 @@ Endpoint: `GET` `https://api.line.me/v2/bot/insight/richmenu/{richMenuId}/summar
 
 指定した期間にリッチメニューを表示したユーザーの人数や、表示された回数などを合計値として取得します。通常、統計情報の集計処理は翌日中に完了します。
 
+<!-- tip start -->
+
+**リッチメニューの削除後やリンク解除後の統計情報**
+
+既に削除されたリッチメニューや、ユーザーとのリンクが解除済みのリッチメニューであっても、集計対象期間内の統計情報を取得できます。
+
+なお、[リッチメニューを削除](https://developers.line.biz/ja/reference/messaging-api/#delete-rich-menu)しても、ユーザーが開いているトーク画面ではリッチメニューが表示され続けることがあります。そのため、たとえば月末に削除したリッチメニューでも、翌月以降の統計情報に表示やクリックが含まれることがあります。詳しくは、『Messaging APIドキュメント』の「[リッチメニューの設定変更が反映されるタイミング](https://developers.line.biz/ja/docs/messaging-api/rich-menus-overview/#when-setting-change-takes-effect)」を参照してください。
+
+<!-- tip end -->
+
 _リクエストの例_
 
 <!-- tab start `shell` -->
@@ -14003,7 +14013,7 @@ _レスポンスの例_
 | コード | 説明 |
 | --- | --- |
 | `400` | 統計情報が取得できませんでした。次のような理由が考えられます。<ul><li>集計対象期間が指定されていない。</li><li>無効な集計対象期間が指定されている。</li></ul> |
-| `404` | 存在しないリッチメニューが指定されています。 |
+| `404` | 指定されたリッチメニューの統計情報が存在しません。次のような理由が考えられます。<ul><li>リッチメニューIDが誤っている。</li><li>リッチメニューを作成した直後で、初回の集計処理が完了していない（通常、統計情報の集計処理は翌日中に完了します）。</li><li>リッチメニューを削除してから長期間が経過している。</li></ul> |
 
 詳しくは、[共通仕様](https://developers.line.biz/ja/reference/messaging-api/#common-specifications)の「[ステータスコード](https://developers.line.biz/ja/reference/messaging-api/#status-codes)」および「[エラーレスポンス](https://developers.line.biz/ja/reference/messaging-api/#error-responses)」を参照してください。
 
@@ -14040,6 +14050,16 @@ _エラーレスポンスの例_
 Endpoint: `GET` `https://api.line.me/v2/bot/insight/richmenu/{richMenuId}/daily?from={from}&to={to}`
 
 指定した期間にリッチメニューを表示したユーザーの人数や、表示された回数などを日ごとの値で取得します。通常、統計情報の集計処理は翌日中に完了します。
+
+<!-- tip start -->
+
+**リッチメニューの削除後やリンク解除後の統計情報**
+
+既に削除されたリッチメニューや、ユーザーとのリンクが解除済みのリッチメニューであっても、集計対象期間内の統計情報を取得できます。
+
+なお、[リッチメニューを削除](https://developers.line.biz/ja/reference/messaging-api/#delete-rich-menu)しても、ユーザーが開いているトーク画面ではリッチメニューが表示され続けることがあります。そのため、たとえば月末に削除したリッチメニューでも、翌月以降の統計情報に表示やクリックが含まれることがあります。詳しくは、『Messaging APIドキュメント』の「[リッチメニューの設定変更が反映されるタイミング](https://developers.line.biz/ja/docs/messaging-api/rich-menus-overview/#when-setting-change-takes-effect)」を参照してください。
+
+<!-- tip end -->
 
 _リクエストの例_
 
@@ -14424,7 +14444,7 @@ _レスポンスの例_
 | コード | 説明 |
 | --- | --- |
 | `400` | 統計情報が取得できませんでした。次のような理由が考えられます。<ul><li>集計対象期間が指定されていない。</li><li>無効な集計対象期間が指定されている。</li></ul> |
-| `404` | 存在しないリッチメニューが指定されています。 |
+| `404` | 指定されたリッチメニューの統計情報が存在しません。次のような理由が考えられます。<ul><li>リッチメニューIDが誤っている。</li><li>リッチメニューを作成した直後で、初回の集計処理が完了していない（通常、統計情報の集計処理は翌日中に完了します）。</li><li>リッチメニューを削除してから長期間が経過している。</li></ul> |
 
 詳しくは、[共通仕様](https://developers.line.biz/ja/reference/messaging-api/#common-specifications)の「[ステータスコード](https://developers.line.biz/ja/reference/messaging-api/#status-codes)」および「[エラーレスポンス](https://developers.line.biz/ja/reference/messaging-api/#error-responses)」を参照してください。
 

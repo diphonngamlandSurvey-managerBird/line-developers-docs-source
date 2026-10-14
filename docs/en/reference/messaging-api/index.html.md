@@ -13699,6 +13699,16 @@ Endpoint: `GET` `https://api.line.me/v2/bot/insight/richmenu/{richMenuId}/summar
 
 Retrieves aggregate statistics for the specified period, such as the number of users who viewed the rich menu and how many times it was viewed. The aggregation process of these statistics is usually completed within the next day.
 
+<!-- tip start -->
+
+**Statistics for rich menus after deletion or unlinking**
+
+You can still retrieve statistics for dates within the aggregation period, even if the rich menu has already been deleted or unlinked from users.
+
+Even after you [delete a rich menu](https://developers.line.biz/en/reference/messaging-api/#delete-rich-menu), it may remain visible in a chat the user already has open. As a result, even if you delete a rich menu at the end of a month, its statistics may include data on views and clicks that occurred in the following month or later. For more information, see [When rich menu setting changes take effect](https://developers.line.biz/en/docs/messaging-api/rich-menus-overview/#when-setting-change-takes-effect) in the Messaging API documentation.
+
+<!-- tip end -->
+
 _Example request_
 
 <!-- tab start `shell` -->
@@ -14002,7 +14012,7 @@ Returns the following HTTP status code and an error response:
 | Code | Description |
 | --- | --- |
 | `400` | Unable to get the statistic. Consider these reasons:<ul><li>No aggregation period date specified.</li><li>Invalid aggregation period date specified.</li></ul> |
-| `404` | A non-existent rich menu is specified. |
+| `404` | No statistics exist for the specified rich menu. Consider these reasons:<ul><li>The rich menu ID is incorrect.</li><li>The rich menu was just created, and the initial aggregation of its statistics hasn't finished yet (the aggregation process of these statistics is usually completed within the next day).</li><li>The rich menu was deleted a long time ago.</li></ul> |
 
 For more information, see [Status codes](https://developers.line.biz/en/reference/messaging-api/#status-codes) and [Error responses](https://developers.line.biz/en/reference/messaging-api/#error-responses) in the [Common specifications](https://developers.line.biz/en/reference/messaging-api/#common-specifications) section.
 
@@ -14039,6 +14049,16 @@ _Example error response_
 Endpoint: `GET` `https://api.line.me/v2/bot/insight/richmenu/{richMenuId}/daily?from={from}&to={to}`
 
 Retrieves daily statistics for the specified period, such as the number of users who viewed the rich menu and how many times it was viewed. The aggregation process of these statistics is usually completed within the next day.
+
+<!-- tip start -->
+
+**Statistics for rich menus after deletion or unlinking**
+
+You can still retrieve statistics for dates within the aggregation period, even if the rich menu has already been deleted or unlinked from users.
+
+Even after you [delete a rich menu](https://developers.line.biz/en/reference/messaging-api/#delete-rich-menu), it may remain visible in a chat the user already has open. As a result, even if you delete a rich menu at the end of a month, its statistics may include data on views and clicks that occurred in the following month or later. For more information, see [When rich menu setting changes take effect](https://developers.line.biz/en/docs/messaging-api/rich-menus-overview/#when-setting-change-takes-effect) in the Messaging API documentation.
+
+<!-- tip end -->
 
 _Example request_
 
@@ -14423,7 +14443,7 @@ Returns the following HTTP status code and an error response:
 | Code | Description |
 | --- | --- |
 | `400` | Unable to get the statistic. Consider these reasons:<ul><li>No aggregation period date specified.</li><li>Invalid aggregation period date specified.</li></ul> |
-| `404` | A non-existent rich menu is specified. |
+| `404` | No statistics exist for the specified rich menu. Consider these reasons:<ul><li>The rich menu ID is incorrect.</li><li>The rich menu was just created, and the initial aggregation of its statistics hasn't finished yet (the aggregation process of these statistics is usually completed within the next day).</li><li>The rich menu was deleted a long time ago.</li></ul> |
 
 For more information, see [Status codes](https://developers.line.biz/en/reference/messaging-api/#status-codes) and [Error responses](https://developers.line.biz/en/reference/messaging-api/#error-responses) in the [Common specifications](https://developers.line.biz/en/reference/messaging-api/#common-specifications) section.
 

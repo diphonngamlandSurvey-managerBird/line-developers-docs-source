@@ -110,6 +110,12 @@ Messaging APIで作成したリッチメニューは、表示された回数や�
 | Messaging API | ✅ | ❌ |
 | LINE Official Account Manager | ❌ | ✅ |
 
+### リッチメニューの削除後やリンク解除後の統計情報 
+
+既に削除されたリッチメニューや、ユーザーとのリンクが解除済みのリッチメニューであっても、集計対象期間内の統計情報を取得できます。
+
+なお、[リッチメニューを削除](https://developers.line.biz/ja/reference/messaging-api/#delete-rich-menu)しても、ユーザーが開いているトーク画面ではリッチメニューが表示され続けることがあります。そのため、たとえば月末に削除したリッチメニューでも、翌月以降の統計情報に表示やクリックが含まれることがあります。詳しくは、「[リッチメニューの設定変更が反映されるタイミング](https://developers.line.biz/ja/docs/messaging-api/rich-menus-overview/#when-setting-change-takes-effect)」を参照してください。
+
 ## リッチメニューのAPIリファレンス 
 
 - [リッチメニュー](https://developers.line.biz/ja/reference/messaging-api/#rich-menu)
